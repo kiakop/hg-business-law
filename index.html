@@ -268,120 +268,120 @@
 					}
 				}
 			});
-			$('.sp-footernav, .sp-mobilefooternav, .sp-headernav, #explore, #signup, #pseudobutton').click(function(e) {
-				var self = this, page = $(self).data('page');
-				if ( page !== 'explore' ) {
-					$(window).unbind('scroll');
-				}
-				switch(page) {
-					case "explore":
-						$('#header-first').text("We're Re-thinking small business law");
-						$('#header-second').text('Learn more about how our solution can help your brand');
-						break;
-					case "careers":
-						$('#header-first').text("Where Bright Minds Come to Meet");
-						$('#header-second').html("Calling all problem solvers and go getters!<br />It's time to change the face of small business law")
-						break;
-					case "about":
-						$('#header-first').text("Empowering the world's best brands");
-						$('#header-second').text("You're building a brand. We're here to help you get there quickly.");
-						break;
-					default:
-						break;
-				}
-				if ( $(self).is('.sp-mobilefooternav, .close-ze-footer') ) {
-					$('#mobilefoot-togglemenu').trigger('click');
-				}
-				if ( $('footer').outerHeight() > 200 ) {
-				}
-				$('#hidden-header').css('display', 'block');
-				if ( ! window.hasBeenBlurred && $(window).width() >= 768 ) {
-					$('#hidden-header').css('background-image', 'url(img/background-new-blurred.png)');
-					window.hasBeenBlurred = true;
-				}
-				if ( ! window.hasBeenBlurred && $(window).width() >= 1800 ) {
-					$('#hidden-header').css('background-image', 'url(img/background-large-blurred.png)');
-					$('#hidden-header').css('background-position', 'bottom right');
-					$('#hidden-header').css('background-size', '100% auto');
-					$('#hidden-header').css('height', '611px !important');
-					window.hasBeenBlurred = true;
-				}
-				$('#textfade').fadeOut('slow', function(){
-					$('body').height('-=580px');
-					$('footer').css('position', 'relative');
-					if ( $(window).width() > 480 && $(window).width() < 1800 ) {
-						$('footer').animate({ top: '-600px' }, 500);
-					}
-					if ( $(window).width() >= 1800 ) {
-						$('footer').animate({ top: '50px' }, 500);
-					}
-					$('footer').css('background', '#fff');
-				});
-				var thetime = new Date().getTime();
-				$.get(page + '.html?' + thetime, function(data) {
-					$('footer .new-content').html(data);
-					if ( $(window).width() <= 480 ) {
-						$('footer').css('margin-top', 0);
-						// $('footer').css('top', 0);
-					}
-					if ( page == 'explore' && $(window).width() > 480 ) {
-						$('#the-flower').css({
-							'left': $('.flower-imageholder').eq(0).offset().left - 20,
-							'top' : $('.flower-imageholder').eq(0).offset().top - 285
-						});
-						$(window).on('scroll', function() {
-							if ( $(window).scrollTop() < 880 ) {
-								$('#the-flower').stop().animate({
-									'top' : $('.flower-imageholder').eq(0).offset().top - 285
-								}, 500);
-								AnimateRotate(0);
-							}
-							if ( $(window).scrollTop() > 980 ) {
-								$('#the-flower').stop().animate({
-									'top' : $('.flower-imageholder').eq(1).offset().top - 285
-								}, 500);
-								AnimateRotate(90);
-							}
-							if ( $(window).scrollTop() > 1080 ) {
-								$('#the-flower').stop().animate({
-									'top' : $('.flower-imageholder').eq(2).offset().top - 285
-								}, 500);
-								AnimateRotate(180);
-							}
-							if ( $(window).scrollTop() > 1180 ) {
-								$('#the-flower').stop().animate({
-									'top' : $('.flower-imageholder').eq(3).offset().top - 285
-								}, 500);
-								AnimateRotate(270);
-							}
-						});
-						$('#explore-timeline .no-space').each(function() {
-							var self = this, clone = null;
-							clone = $('.flower-content').clone().appendTo("#dot-line-align");
-							var height = clone.height();
-							clone.remove();
-							$('.dot-holder', self).css('background-position', 'left ' + Math.floor(height/2) + 'px');
-							$('.hor-line-holder', self).css('background-position', 'center ' + (Math.floor(height/2) + 8) + 'px');
-							$('.flower-imageholder img', self).css('top', Math.floor(height/2) + 'px');
-						});
-					}
+			// $('.sp-footernav, .sp-mobilefooternav, .sp-headernav, #explore, #signup, #pseudobutton').click(function(e) {
+			// 	var self = this, page = $(self).data('page');
+			// 	if ( page !== 'explore' ) {
+			// 		$(window).unbind('scroll');
+			// 	}
+			// 	switch(page) {
+			// 		case "explore":
+			// 			$('#header-first').text("We're Re-thinking small business law");
+			// 			$('#header-second').text('Learn more about how our solution can help your brand');
+			// 			break;
+			// 		case "careers":
+			// 			$('#header-first').text("Where Bright Minds Come to Meet");
+			// 			$('#header-second').html("Calling all problem solvers and go getters!<br />It's time to change the face of small business law")
+			// 			break;
+			// 		case "about":
+			// 			$('#header-first').text("Empowering the world's best brands");
+			// 			$('#header-second').text("You're building a brand. We're here to help you get there quickly.");
+			// 			break;
+			// 		default:
+			// 			break;
+			// 	}
+			// 	if ( $(self).is('.sp-mobilefooternav, .close-ze-footer') ) {
+			// 		$('#mobilefoot-togglemenu').trigger('click');
+			// 	}
+			// 	if ( $('footer').outerHeight() > 200 ) {
+			// 	}
+			// 	$('#hidden-header').css('display', 'block');
+			// 	if ( ! window.hasBeenBlurred && $(window).width() >= 768 ) {
+			// 		$('#hidden-header').css('background-image', 'url(img/background-new-blurred.png)');
+			// 		window.hasBeenBlurred = true;
+			// 	}
+			// 	if ( ! window.hasBeenBlurred && $(window).width() >= 1800 ) {
+			// 		$('#hidden-header').css('background-image', 'url(img/background-large-blurred.png)');
+			// 		$('#hidden-header').css('background-position', 'bottom right');
+			// 		$('#hidden-header').css('background-size', '100% auto');
+			// 		$('#hidden-header').css('height', '611px !important');
+			// 		window.hasBeenBlurred = true;
+			// 	}
+			// 	$('#textfade').fadeOut('slow', function(){
+			// 		$('body').height('-=580px');
+			// 		$('footer').css('position', 'relative');
+			// 		if ( $(window).width() > 480 && $(window).width() < 1800 ) {
+			// 			$('footer').animate({ top: '-600px' }, 500);
+			// 		}
+			// 		if ( $(window).width() >= 1800 ) {
+			// 			$('footer').animate({ top: '50px' }, 500);
+			// 		}
+			// 		$('footer').css('background', '#fff');
+			// 	});
+			// 	var thetime = new Date().getTime();
+			// 	$.get(page + '.html?' + thetime, function(data) {
+			// 		$('footer .new-content').html(data);
+			// 		if ( $(window).width() <= 480 ) {
+			// 			$('footer').css('margin-top', 0);
+			// 			// $('footer').css('top', 0);
+			// 		}
+			// 		if ( page == 'explore' && $(window).width() > 480 ) {
+			// 			$('#the-flower').css({
+			// 				'left': $('.flower-imageholder').eq(0).offset().left - 20,
+			// 				'top' : $('.flower-imageholder').eq(0).offset().top - 285
+			// 			});
+			// 			$(window).on('scroll', function() {
+			// 				if ( $(window).scrollTop() < 880 ) {
+			// 					$('#the-flower').stop().animate({
+			// 						'top' : $('.flower-imageholder').eq(0).offset().top - 285
+			// 					}, 500);
+			// 					AnimateRotate(0);
+			// 				}
+			// 				if ( $(window).scrollTop() > 980 ) {
+			// 					$('#the-flower').stop().animate({
+			// 						'top' : $('.flower-imageholder').eq(1).offset().top - 285
+			// 					}, 500);
+			// 					AnimateRotate(90);
+			// 				}
+			// 				if ( $(window).scrollTop() > 1080 ) {
+			// 					$('#the-flower').stop().animate({
+			// 						'top' : $('.flower-imageholder').eq(2).offset().top - 285
+			// 					}, 500);
+			// 					AnimateRotate(180);
+			// 				}
+			// 				if ( $(window).scrollTop() > 1180 ) {
+			// 					$('#the-flower').stop().animate({
+			// 						'top' : $('.flower-imageholder').eq(3).offset().top - 285
+			// 					}, 500);
+			// 					AnimateRotate(270);
+			// 				}
+			// 			});
+			// 			$('#explore-timeline .no-space').each(function() {
+			// 				var self = this, clone = null;
+			// 				clone = $('.flower-content').clone().appendTo("#dot-line-align");
+			// 				var height = clone.height();
+			// 				clone.remove();
+			// 				$('.dot-holder', self).css('background-position', 'left ' + Math.floor(height/2) + 'px');
+			// 				$('.hor-line-holder', self).css('background-position', 'center ' + (Math.floor(height/2) + 8) + 'px');
+			// 				$('.flower-imageholder img', self).css('top', Math.floor(height/2) + 'px');
+			// 			});
+			// 		}
 
-					if ( $(self).attr('id') == 'signup' ) {
+			// 		if ( $(self).attr('id') == 'signup' ) {
 
-						$('html, body').animate({
-							scrollTop: $('#sp-explore-signup').offset().top
-						}, 500, function () {
-							window.location.hash = '#sp-explore-signup';
-						});
-					}
+			// 			$('html, body').animate({
+			// 				scrollTop: $('#sp-explore-signup').offset().top
+			// 			}, 500, function () {
+			// 				window.location.hash = '#sp-explore-signup';
+			// 			});
+			// 		}
 
-					if ( $(self).hasClass('sp-footernav') ) {
-						$('html, body').animate({
-							scrollTop: 0
-						})
-					}
-				});
-			});
+			// 		if ( $(self).hasClass('sp-footernav') ) {
+			// 			$('html, body').animate({
+			// 				scrollTop: 0
+			// 			})
+			// 		}
+			// 	});
+			// });
 			$('#blur-overlay-logo, .close-slider').click(function() {
 				$('footer .new-content').slideUp('slow', function() {
 					$('footer .new-content').html('');
